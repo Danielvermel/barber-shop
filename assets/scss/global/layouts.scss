@@ -1,0 +1,478 @@
+// /*
+//     title:  layouts
+//     author: @nexuspoint.co.uk
+//     notes:
+
+
+
+// ======================================================================================================================================================================================================== */
+
+
+// @use "~/assets/scss/_theme" as *;
+
+
+// //  create the col engine since its commented out in node modules
+// //  ====================================================================================================
+// @for $i from 1 through 12 {
+//     .col-#{$i} {
+//         @include col-($i);
+//     }
+// }
+
+
+
+
+// //  control the change in cols used on many pages
+// //  ====================================================================================================
+// %component-widths {
+//     margin: 0 auto;
+//     width: col-(12);
+
+//     @media screen and (min-width: $break-large) {
+//         width: col-(8);
+//     }
+
+//     @media screen and (min-width: $break-x-large) {
+//         width: col-(6);
+//     }
+// }
+
+
+
+// //  viewport toggles
+// //  ====================================================================================================
+// .hide-large {
+//     @media screen and (min-width: $break-large) {
+//         display: none;
+//     }
+// }
+
+
+
+
+// //  Finance calculator / search / example table -
+// //  Might merge this with the rest of the styles and keep it globally
+// //  ====================================================================================================
+// .finance-table {
+//     @include flex($align: center, $justify:space-between, $wrap: wrap);
+
+//     article {
+//         @include flex($align: center, $dir: column, $justify: center);
+
+//         border-radius: $global-border-radius;
+//         border: 1px solid rgba(255, 255, 255, .15);
+//         line-height: 22px;
+//         margin: 5px 0;
+//         padding: 16px 20px;
+//         width: calc(50% - 5px);
+
+//         @media screen and (min-width: $break-medium) {
+//             width: calc(33.33% - 5px);
+//         }
+
+//         strong {
+//             font-size: 16px;
+//             padding-top: 5px;
+//         }
+//     }
+// }
+
+
+
+
+// //  Overlay for nav and maybe modals
+// //  ====================================================================================================
+// .overlay {
+//     background: rgba($color: #000000, $alpha: .85);
+//     height: 100%;
+//     left: 0;
+//     position: fixed;
+//     top: 0;
+//     width: 100%;
+//     z-index: 8;
+// }
+
+
+
+
+// // global-component-padding
+// .global-component-padding {
+//     @extend %global-component-padding;
+// }
+
+
+// // global tab navs
+// .tab-nav {
+//     @include flex($align: center);
+
+//     border-bottom: solid 1px $grey-1;
+//     overflow: auto;
+
+//     button, .button {
+//         border-bottom: solid 2px $grey-1;
+//         flex-shrink: 0;
+//         margin: 0;
+//         padding: 20px 15px;
+
+//         color: #000;
+
+//         &.active,
+//         &:hover {
+//             border-color: $color-3;
+//         }
+
+//         span {
+//             color: $color-2;
+//         }
+//     }
+
+//     &.light {
+//         border: none;
+
+//         button, .button {
+//             color: #fff;
+//             border-color: $color-4;
+
+//             &.active,
+//             &:hover {
+//                 border-color: $grey-1;
+//             }
+//         }
+//     }
+
+//     &.split {
+//         button {
+//             flex: 1 1 0px;
+//         }
+//     }
+// }
+
+// // style for tags, categories etc
+// .pill {
+//     @include flex($align: center, $justify: center);
+
+//     background: #fff;
+//     border-radius: 100px;
+//     border: solid 1px $grey-1;
+//     color: #000;
+//     font-family: $body-font-family;
+//     font-size: 11px;
+//     font-weight: 700;
+//     left: 10px;
+//     padding: 5px 10px;
+//     position: absolute;
+//     text-transform: uppercase;
+//     top: 10px;
+//     height: 18px;
+//     z-index: 2;
+
+//     &.icon {
+//     }
+
+//     .icon {
+//         @include set-icon-color(#000);
+
+//         height: 14px;
+//         margin-right: 5px;
+//         width: 14px;
+//     }
+// }
+
+// .contact-section {
+//     @extend %global-component-padding;
+// }
+
+// .flex {
+//     @media screen and (min-width: $break-large) {
+//         @include flex($align: stretch);
+//     }
+// }
+
+// // search filters
+// .search-wrapper {
+//     margin: 0 auto;
+//     max-width: $sw-x-large;
+//     width: 100%;
+
+//     @media screen and (min-width: $break-medium) {
+//         padding: 0 15px;
+//     }
+
+//     @media screen and (min-width: $break-large) {
+//         @include flex($align: flex-start, $justify: space-between);
+//     }
+
+//     .header {
+//         @include flex($align: center, $wrap: nowrap);
+
+//         color: #000;
+//         margin-bottom: 25px;
+//         padding: 0;
+
+//         @media screen and (min-width: $break-medium) {
+//             padding: 0 30px;
+//         }
+
+//         @media screen and (min-width: $break-large) {
+//             padding: 0;
+//         }
+//     }
+
+//         .reset {
+//             font-family: $body-font-family;
+//             font-size: 14px;
+//             font-weight: 400;
+//             margin-left: auto;
+//             text-decoration: underline;
+//         }
+
+//         .icon-container {
+//             @include flex($align: center, $justify: center);
+
+//             border-radius: 100px;
+//             border: solid 1px #000;
+//             cursor: pointer;
+//             height: 30px;
+//             margin-left: 32px;
+//             width: 30px;
+
+//             .icon {
+//                 height: 20px;
+//                 width: 20px;
+//             }
+//         }
+
+//     .filter-wrapper {
+//         transform: translateY(120%);
+//         transition: ease .3s;
+
+//         &.active {
+//             transform: translateY(0);
+//         }
+
+//         // Make it fixed tablet and bellow
+//         @media screen and (max-width: $break-large) {
+//             background: #fff;
+//             height: 100vh;
+//             left: 0;
+//             overflow: auto;
+//             padding: 110px 50px 0;
+//             position: fixed;
+//             top: 0;
+//             width: 100%;
+//             z-index: 4;
+//         }
+
+//         @media screen and (max-width: $break-small) {
+//             padding: 90px 13px 120px; // [TODO] Remove padding bottom once ios launches ios15
+//         }
+
+//         // make it span 3 cols above tablet
+//         @media screen and (min-width: $break-large) {
+//             display: block;
+//             overflow: visible;
+//             padding-top: 0;
+//             transform: translateY(0);
+//             width: col-(3);
+//             z-index: 4;
+//         }
+
+//         .header {
+//             &.for-sidebar {
+//                 margin-bottom: 0;
+//                 padding: 0 0 10px;
+
+//                 @media screen and (min-width: $break-large) {
+//                     display: none;
+//                 }
+//             }
+//         }
+//     }
+
+//     .results-wrapper {
+//         width: 100%;
+
+//         // create list on tablet and up for bike cards - default is grid view
+//         @media screen and (min-width: $break-medium) {
+//             @include flex($align: stretch, $justify: space-between, $wrap: wrap);
+//         }
+
+//         // make it span 9 cols above tablet
+//         @media screen and (min-width: $break-large) {
+//             width: col-(9);
+//         }
+
+//         // list view
+//         &.list {
+//             @include flex($align: flex-start, $dir: column, $justify: flex-start, $wrap: nowrap)
+//         }
+//     }
+
+
+
+//     .filter-cta {
+//         @include flex($align: center);
+
+//         background: #fff;
+//         bottom: 0;
+//         box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+//         left: 0;
+//         padding: 15px 13px;
+//         position: fixed;
+//         transform: translateY(100%);
+//         transition: .3s ease;
+//         width: 100%;
+//         z-index: 10;
+
+//         @media screen and (min-width: $break-medium) {
+//             padding: 15px 50px;
+//         }
+
+//         @media screen and (min-width: $break-large) {
+//             display: none;
+//         }
+
+//         &.active {
+//             transform: translateY(0);
+//         }
+
+//         button {
+//             flex: 1 1 0px;
+//             font-size: 14px;
+//             height: 50px;
+//             padding: 0;
+//         }
+
+//             .outline {
+//                 margin-right: 5px;
+//             }
+
+//             .primary {
+//                 margin-left: 5px;
+//             }
+//     }
+
+//     .search-footer {
+//         @include flex($align: center, $dir: column, $justify: space-between);
+
+//         padding: 1.250em 0;
+//         width: 100%;
+
+//         @media screen and (min-width: $break-medium) {
+//             @include flex($align: center, $justify: space-between);
+//         }
+
+//         .pagination {
+//             @media screen and (max-width: $break-medium) {
+//                 justify-content: center;
+//             }
+//         }
+
+//         .sort-filter {
+//             margin-left: 5px;
+//             width: calc(50% - 5px);
+
+//             @media screen and (min-width: $break-medium) {
+//                 width: 210px;
+//                 margin-left: 20px;
+//             }
+//         }
+//     }
+// }
+
+// .search-wrapper,
+// .home-hero {
+//     .tablet-header {
+//         @include flex($align: center);
+
+//         padding: 0 0;
+
+//         .reset {
+//             margin-left: auto;
+//         }
+
+//         @media screen and (min-width: $break-medium) {
+//             padding: 0 30px;
+//         }
+
+//         @media screen and (min-width: $break-large) {
+//             display: none !important;
+//         }
+//     }
+// }
+
+// .bike-search {
+//     .search-wrapper {
+//         .tab-nav {
+//             display: none !important;
+//         }
+
+//         .cta {
+//             display: none;
+//         }
+
+//         .header {
+//             margin-bottom: 14px;
+
+//             @media screen and (min-width: $break-medium) {
+//                 margin-bottom: 34px;
+//             }
+//             // .reset,
+//             // .icon-container {
+//             //     display: none;
+//             // }
+//         }
+//     }
+// }
+
+// .home-hero {
+//     .header {
+//         &.for-sidebar {
+//            display: none;
+//         }
+//     }
+//     .tab-nav {
+//         @media screen and (min-width: $break-medium) {
+//             margin: 0 30px;
+//         }
+
+//         @media screen and (min-width: $break-large) {
+//             display: none !important;
+//         }
+
+//         button, .button {
+//             flex: 1 1 0px;
+//             padding: 10px;
+//         }
+//     }
+// }
+
+
+
+// .familiy-section {
+//     padding: 24px 0;
+
+//     @media screen and (min-width: $break-medium) {
+//         @include flex($align: stretch);
+
+//         padding: 40px 0;
+//     }
+
+//     .col {
+//         @include flex($align: center, $dir: column, $justify: center);
+
+//         @media screen and (min-width: $break-medium) {
+//             width: 50%;
+//         }
+
+//         img {
+//             width: 100%;
+//         }
+
+//         &.content {
+//             @media screen and (min-width: $break-medium) {
+//                 padding: 0 50px;
+//             }
+//         }
+//     }
+// }

@@ -1,0 +1,68 @@
+/*
+    title:  imports
+======================================================================================================================================================================================================== */
+
+
+
+//  global to the project
+//  ====================================================================================================
+@use "global/layouts" as *;
+@use "global/typography" as *;
+@use "global/buttons" as *;
+@use "global/forms" as *;
+@use "global/animations" as *;
+
+
+
+
+//  repeatable (in a loop) components where you don't want the style duplicated X times
+//  this is to import only once the scss for the component that are in a loop (e.g. cards components) 
+//  ====================================================================================================
+// tiles
+// @import "components/tile/tile";
+// @include tile();
+
+// // News cards
+// @import "components/news/card/card";
+// @include blog-card();
+
+// // Bike cards
+// @import "components/bike/card/card";
+// @include bike-card();
+
+// // Search filters
+// @import "components/filter/item/item";
+// @include filter-item();
+
+// @import "components/filter/item/sub/modal/modal";
+// @include filter-modal();
+
+// @import "components/filter/item/sub/button/button";
+// @include filter-button();
+
+// @import "components/bike-details/info/spec-item/spec-item";
+// @include spec-item();
+
+// @import "components/new-bikes/card/card";
+// @include new-bike-card();
+
+
+// @import "components/forms/dynamic-form/dynamic-form";
+// @include dynamic-form();
+
+
+//  include/set styles for forwarded modules mixin
+//  ====================================================================================================
+// @include button-styles(
+//     $border-radius: 10px,
+//     $button-color-1: $color-1,
+//     $button-color-2: $color-4,
+//     $font-size: 16px,
+//     $font-weight: 700,
+//     $padding: 12px 20px,
+//     $threshold: 70%,
+// );
+
+
+
+// @include form-styles();

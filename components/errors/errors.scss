@@ -1,0 +1,91 @@
+// /*
+//     title:  errors
+//     author: Daniel Leite
+//     notes:
+
+// ======================================================================================================================================================================================================== */
+
+
+@use "~/assets/scss/_theme" as *;
+@use "~/assets/scss/mixins" as *;
+
+
+//  component wrapper
+//  ====================================================================================================
+@mixin error-pages(
+    $component-name: "error-page"
+) {
+    .#{$component-name} {
+        @extend %global-component-padding;
+
+        min-height: 50vh;
+
+        background: url(/img/error-bg.jpg) no-repeat;
+        background-size: cover;
+        background-position: center;
+
+        > .sw {
+            @include flex($align: center, $dir: column, $justify: center);
+
+            &::before,
+            &::after {
+                display: none;  //  cf
+            }
+        }
+
+        h1,
+        img {
+            padding-bottom: 1rem;
+
+            @media screen and (min-width: $break-medium) {
+                padding-bottom: 1.75rem;
+            }
+        }
+
+        h1 {
+            font-weight: 300;
+        }
+
+        p {
+            color: #000;
+            font-size: 16px;
+            font-weight: 700;
+            padding: 0;
+        }
+
+        .error-ctas {
+            @include flex($align: center, $justify: space-between, $wrap: wrap);
+
+            padding-top: 20px;
+
+            @media screen and (min-width: $break-medium) {
+                padding-top: 35px;
+            }
+
+            .button {
+                background: #fff !important;
+                margin: 5px;
+                width: calc(100% - 10px);
+
+                @media screen and (min-width: $break-medium) {
+                    width: calc(50% - 10px);
+                }
+
+                @media screen and (min-width: $break-large) {
+                    width: 260px;
+                }
+
+                &.outline {
+                    &:hover {
+                        background: #fff !important;
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+
+//  make available (note, don't use this here when the component is used in a v-for/loop)
+@include error-pages();

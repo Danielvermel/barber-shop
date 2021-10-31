@@ -1,0 +1,190 @@
+/*
+    title:  theme
+======================================================================================================================================================================================================== */
+
+
+
+
+//  site widths/responsive breakpoints
+//  ====================================================================================================
+$standard-col-margin: 7.5px !default;
+
+$break-x-small: 320px !default;
+$break-small: 425px !default;
+$break-medium: 768px !default;
+$break-large: 1025px !default;
+$break-x-large: 1440px !default;
+
+$sw-small: 100% !default;
+$sw-medium: 100% !default;
+$sw-large: 100% !default;
+$sw-x-large: 1420px !default;
+$sw-max: 1920px !default;
+
+
+
+
+//  branding
+//  ====================================================================================================
+$color-1: #CAD2D5 !default;      // Brand/Accent 1
+$color-2: #A6AEB1 !default;      // Brand/Accent 2
+$color-3: #22253A !default;      // Brand/Accent 3
+$color-4: #03061B !default;      // Brand/Accent 4
+$color-5: #F0F4FA !default;      // Framework/Light Background
+$color-6: #03061B !default;      // Framework/Dark Background
+
+$grey-1: #D1D6E0 !default;       //	Framework/Borders
+$grey-2: #A2A9AF !default;       // Text/Disabled
+$grey-3: #4D4D4D !default;       // Text/Grey
+$grey-4: #ccc !default;       //
+$grey-5: #ccc !default;       //
+$grey-6: #C5CED1 !default;       // States/Inactive
+$grey-7: #000 !default;          // Text & Neutrals/Body
+
+$color-honda: #E3001D !default; // Honda brand color regular
+$color-honda-dark: #C20021 !default; // Honda brand color dark
+$color-ktm: #FF6600 !default; // KTM Brand color
+$color-ktm-dark: #FC6621 !default; // KTM Brand color dark
+$color-atv: #3F6426 !default; // ATV Brand color
+
+// brand specific mixins
+@mixin brand-background($color) {
+    background: $color;
+}
+
+@mixin brand-border-color($color) {
+    border-color: $color;
+}
+
+@mixin brand-font-color($color) {
+    color: $color;
+}
+
+$text-black: #000 !default;
+
+$color-success: #7FE3A9 !default;
+$color-warning: #F3C73F !default;
+$color-error: #F87B7B !default;
+
+$color-facebook: #3b5998 !default;
+$color-twitter: #1da1f2 !default;
+$color-google: #db4437 !default;
+
+
+
+
+//	typography
+//  ====================================================================================================
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap');
+
+@font-face {
+    font-display: swap;
+    font-family: 'proxima';
+    font-weight: 400;
+    src: url('~assets/fonts/cbm/ProximaNova-Regular.ttf');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'proxima';
+    font-weight: 700;
+    src: url('~assets/fonts/cbm/ProximaNova-Semibold.ttf');
+}
+
+// Honda font familly
+@font-face {
+    font-display: swap;
+    font-family: 'helvetica-roman';
+    src: url('~assets/fonts/honda/helveticaneueltstd roman.otf');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'din-condensed';
+    font-weight: 700;
+    src: url('~assets/fonts/honda/dinnextltpro boldcondensed.otf');
+}
+
+// KTM Font family
+@font-face {
+    font-display: swap;
+    font-family: 'blender pro';
+    font-weight: 700;
+    src: url('~assets/fonts/ktm/BlenderPro-Bold.ttf');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'blender pro';
+    font-weight: 900;
+    src: url('~assets/fonts/ktm/BlenderPro-Heavy.otf');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'trade gothic';
+    font-weight: 700;
+    src: url('~assets/fonts/ktm/TradeGothicLTCom-Bd2.ttf');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'trade gothic';
+    font-weight: 400;
+    src: url('~assets/fonts/ktm/TradeGothicLTCom.ttf');
+}
+
+$base-font-size: 16px !default;
+
+$p-size: 1rem !default;
+$p-padding: .8571428571428571rem 0 !default;    //  = 24px
+$p-line-height: 26px !default;
+
+$link-color: $color-1 !default;
+
+$body-bg-color: #fff !default;
+$body-color: $grey-3 !default;
+$body-font-family: 'proxima', sans-serif !default;
+$body-font-weight: 400 !default;
+
+$heading-color: $text-black !default;
+$heading-font-family: 'Roboto Condensed', sans-serif;
+$heading-font-weight: 700 !default;
+
+
+
+
+//	global border
+//  ====================================================================================================
+$global-border-color: $grey-1 !default;
+$global-border-radius: 10px !default;
+
+@if (lightness($body-bg-color) > 50) {
+	$global-border-color: #e5e5e5;
+} @else {
+	$global-border-color: lighten($body-bg-color, 20%);
+}
+
+
+
+
+//  global component padding
+//  ====================================================================================================
+%global-component-padding {
+    padding-top: 34px;
+    padding-bottom: 34px;
+
+    @media screen and (min-width: $break-large) {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    @media screen and (min-width: $break-large) {
+        padding-top: 70px;
+        padding-bottom: 70px;
+    }
+}
+
+
+
+

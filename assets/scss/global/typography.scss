@@ -1,0 +1,101 @@
+// /*
+//     title:  typography
+//     author: @nexuspoint.co.uk
+//     notes:  site wide changes to main text/typography
+
+
+
+// ======================================================================================================================================================================================================== */
+
+
+// @use "~/assets/scss/_theme" as *;
+
+
+// //  site typography
+// //  ====================================================================================================
+// body {
+//     font-size: 14px;
+//     line-height: 20px;
+
+//     @media screen and (min-width: $break-large) {
+//         font-size: 16px;
+//         line-height: 22px;
+//     }
+// }
+//     h1, h2, h3, h4 {
+//         font-weight: 700;
+//         padding-bottom: 14px;
+//         text-transform: uppercase;
+//     }
+
+//     h1 {
+//         font-size: 22px;
+//         line-height: 28px;
+
+//         @media screen and (min-width: $break-medium) {
+//             font-size: 32px;
+//             line-height: 38px;
+//         }
+
+//         &.massive {
+//             font-size: 54px;
+//             line-height: 65px;
+//         }
+//     }
+
+//     h2 {
+//         font-size: 16px;
+//         line-height: 22px;
+
+//         @media screen and (min-width: $break-medium) {
+//             font-size: 22px;
+//             line-height: 28px;
+//         }
+//     }
+
+//     h3 {
+//         font-size: 16px;
+//         line-height: 22px;
+//     }
+
+//     h4 {
+//         font-size: 11px;
+//         line-height: 18px;
+//         text-transform: uppercase;
+//         color: $grey-2;
+//         letter-spacing: 2px;
+//     }
+
+// .cms-content {
+//     ul {
+//         line-height: 22px;
+//         margin-bottom: 15px;
+//         padding: 15px;
+
+//         li {
+//             list-style-type: disc;
+//             display: list-item;
+//             list-style-position: inside;
+//         }
+//     }
+
+//     ol {
+//         line-height: 22px;
+//         margin-bottom: 15px;
+//         padding: 15px;
+
+//         li {
+//             list-style-type: decimal;
+//             display: list-item;
+//             list-style-position: inside;
+//         }
+//     }
+
+//     h2 {
+//         padding-top: 24px;
+
+//         @media screen and (min-width: $break-medium) {
+//             padding-top: 44px;
+//         }
+//     }
+// }

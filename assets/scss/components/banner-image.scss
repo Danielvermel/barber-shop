@@ -1,0 +1,28 @@
+/*
+    title:  banner-image component
+    author: nexuspoint.co.uk
+    notes:
+
+======================================================================================================================================================================================================== */
+
+
+@use "~/assets/scss/_theme" as *;
+
+.banner-image {
+    height: 100px;
+
+    @media screen and (min-width: $break-medium) {
+        height: 150px;
+    }
+
+    @media screen and (min-width: $break-large) {
+        height: 200px;
+    }
+
+    img {
+        height: 100%;
+        object-fit: cover;
+        object-position: top center;
+        width: 100%;
+    }
+}

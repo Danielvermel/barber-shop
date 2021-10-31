@@ -1,0 +1,299 @@
+/*
+    title:  mixins
+    author: Daniel Leite
+    notes:
+
+======================================================================================================================================================================================================== */
+
+
+@use "~/assets/scss/_theme" as *;
+
+
+//  clear fix
+//  ====================================================================================================
+%cf {
+    &::before,
+    &::after {
+        content: " ";
+        display: table;
+    }
+
+    &::after {
+        clear: both;
+    }
+}
+
+
+
+
+//  site width
+//  ====================================================================================================
+@mixin sw() {
+    @if mixin-exists(cf) {
+        @extend %cf;
+    }
+
+    display: block;
+    margin: 0 auto;
+    padding: 0 $standard-col-margin;
+    width: $sw-small;
+
+    @media screen and (min-width : $break-medium) {
+        width: $sw-medium;
+    }
+    @media screen and (min-width : $break-large) {
+        width: $sw-large;
+    }
+    @media screen and (min-width : $break-x-large) {
+        width: $sw-x-large;
+    }
+}
+
+
+
+
+//  main column layout generator
+//  ====================================================================================================
+$standard-cols: 12 !default;
+
+@mixin col-($i, $col-margin: $standard-col-margin) {
+    @if mixin-exists(cf) {
+        @extend %cf;
+    }
+
+    min-height: 1px;
+    position: relative;
+    width: 100%;
+
+    //  this break point will make all columns jump from 100% (unless using suffix -m or -s as below)
+    @media screen and (min-width: $break-medium) {
+        float: left;
+        margin-right: $col-margin;
+        margin-left: $col-margin;
+        width: calc(100% / 12 * #{$i} - (#{$col-margin} * 2));
+    }
+
+    //  keep column 50% at "mobile"
+    &-s {
+        position: relative;
+
+        @media screen and (max-width: $break-medium) {
+            float: left;
+            margin-right: $col-margin;
+            margin-left: $col-margin;
+            width: calc(50% - (#{$col-margin} * 2));
+        }
+
+        @media screen and (min-width: $break-medium) {
+            float: left;
+            margin-right: $col-margin;
+            margin-left: $col-margin;
+            width: calc(100% / 12 * #{$i} - (#{$col-margin} * 2));
+        }
+    }
+
+    //  keep column 50% at "tablet"
+    &-m {
+        position: relative;
+
+        @media screen and (min-width : $break-medium) and (max-width : $break-large) {
+            float: left;
+            margin-right: $col-margin;
+            margin-left: $col-margin;
+            width: calc(50% - (#{$col-margin} * 2));
+        }
+
+        @media screen and (min-width : $break-medium) and (min-width: $break-large) {
+            float: left;
+            margin-right: $col-margin;
+            margin-left: $col-margin;
+            width: calc(100% / 12 * #{$i} - (#{$col-margin} * 2));
+        }
+    }
+
+    //  keep column 50% at "large"
+    &-l {
+        position: relative;
+
+        @media screen and (min-width : $break-large) and (max-width : $break-x-large) {
+            float: left;
+            margin-right: $col-margin;
+            margin-left: $col-margin;
+            width: calc(50% - (#{$col-margin} * 2));
+        }
+
+        @media screen and (min-width : $break-large) and (min-width: $break-x-large) {
+            float: left;
+            margin-right: $col-margin;
+            margin-left: $col-margin;
+            width: calc(100% / 12 * #{$i} - (#{$col-margin} * 2));
+        }
+    }
+
+    &.center {
+        float: none;
+        margin: 0 auto;
+    }
+}
+//  need to include this in the project (ONCE, not via modules files)
+// @for $i from 1 through $standard-cols {
+//     .col-#{$i} {
+//         @include col-($i);
+//     }
+// }
+
+
+
+
+//  flex
+//  ====================================================================================================
+@mixin flex($align: unset, $dir: row, $wrap: nowrap, $justify: unset) {
+    align-items: $align;
+    display: flex;
+    flex-direction: $dir;
+    flex-wrap: $wrap;
+    justify-content: $justify;
+}
+
+
+
+
+//  global component
+//  ====================================================================================================
+@mixin global-component-padding($mobile: 40px, $desktop: 100px) {
+    padding-top: $mobile;
+    padding-bottom: $mobile;
+
+    @media screen and (min-width : $break-medium) {
+        padding-top: $desktop;
+        padding-bottom: $desktop;
+    }
+}
+
+
+
+
+//  mask image
+//  ====================================================================================================
+@mixin mask-image($height: 75%, $position: center) {
+    @include flex($align: $position);
+
+    height: 0;
+    overflow: hidden;
+    padding-top: $height;
+    position: relative;
+
+    img {
+        display: block;
+        position: absolute;
+        top: 0;
+
+        //  mask off the rest of the image
+        @supports (object-fit: cover) {
+            height: 100%;
+            object-fit: cover;
+            width: 100%;
+        }
+    }
+}
+
+
+
+
+//  change icon colours
+//  ====================================================================================================
+@mixin set-icon-color($color) {
+    [fill^="#"] {
+        fill: $color !important;
+        transition: .3s;
+    }
+
+    [stroke^="#"] {
+        stroke: $color !important;
+        transition: .3s;
+    }
+}
+
+
+
+
+//  try to remove autocomplete
+//  ====================================================================================================
+@mixin remove-auto-complete($color) {
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    textarea:-webkit-autofill,
+    textarea:-webkit-autofill:hover,
+    textarea:-webkit-autofill:focus,
+    select:-webkit-autofill,
+    select:-webkit-autofill:hover,
+    select:-webkit-autofill:focus {
+        box-shadow: 0 0 0 1000px $color inset;
+    }
+}
+
+
+
+
+//  background helpers
+//  ====================================================================================================
+@mixin bg-overlay($image: none, $overlay: transparent, $fade: 1) {
+    position: relative;
+
+    > * {
+        position: relative;
+        z-index: 1;
+    }
+
+    &::before,
+    &::after {
+        bottom: 0;
+        content: "";
+        display: block;
+        left: 0;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    &::before {
+        background: $overlay;
+        opacity: $fade;
+        z-index: 1;
+    }
+
+    &::after {
+        background-image: url($image);
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
+
+
+
+
+
+
+
+
+
+//  col generator
+//  ====================================================================================================
+@function col-($count: 12) {
+    @return calc(100% / 12 * #{$count} - (#{$standard-col-margin} * 2));
+}
+
+
+
+
+//  color contrast, used to determin if colours need to change (border color and component text)
+//  ====================================================================================================
+@function contrast($color, $threshold: 60, $returnLight: #fff, $returnDark: $body-color) {
+    @if (lightness($color) > $threshold) {
+        @return $returnDark;
+    } @else {
+        @return $returnLight;
+    }
+}

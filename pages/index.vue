@@ -1,5 +1,9 @@
 <template>
-  <Tutorial/>
+  <div>
+    <!-- </Hero> -->
+    INdex.page
+
+  </div>
 </template>
 
 <script>

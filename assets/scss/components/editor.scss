@@ -1,0 +1,23 @@
+/*
+    title:  editor component
+    author: nexuspoint.co.uk
+    notes:
+
+======================================================================================================================================================================================================== */
+
+
+@use "~/assets/scss/_theme" as *;
+
+.editor{
+    &.col-8 {
+        width: 100%;
+
+        @media screen and (min-width: $break-medium) {
+            width: col-(12);
+        }
+
+        @media screen and (min-width: $break-large) {
+            width: col-(8);
+        }
+    }
+}

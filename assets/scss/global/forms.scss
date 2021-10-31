@@ -1,0 +1,374 @@
+// /*
+//     title:  forms
+//     author: @nexuspoint.co.uk
+//     notes:  site wide changes
+
+
+
+// ======================================================================================================================================================================================================== */
+
+
+// @use "~/assets/scss/_theme" as *;
+
+
+// //  FORMS - set defaults, and allow custom variables to be passed in
+// //  ====================================================================================================
+// @mixin form-styles(
+//     $component-name: "np-form",
+
+//     $background-color: #fff,
+//     $border-color: #ABBFC6,
+//     $border-radius: 10px,
+//     $color: $body-color,
+//     $padding: 1.322rem 1.5714285714rem
+// ) {
+//   .#{$component-name} {
+//         .form-container,
+//         .form-item {
+//             @include flex($align: flex-start, $dir: column);
+
+//             margin-bottom: 1rem;
+//             position: relative;
+
+//             > * {
+//                 width: 100%;
+//             }
+//         }
+//             //  Input Forms
+//             //  ========================================================================================
+//             .label {
+//                 background: #fff;
+//                 border-radius: 100px;
+//                 color: #000;
+//                 font-size: 12px;
+//                 left: 7px;
+//                 line-height: 18px;
+//                 padding: 0 6px;
+//                 position: absolute;
+//                 top: -10px;
+//                 width: auto;
+//                 z-index: 8;
+//             }
+
+//                 sup {
+//                     color: $color-error;
+//                     vertical-align: top;
+//                 }
+
+//                 span {
+//                     color: $color-error;
+//                     float: right;
+//                     font-size: .875rem;
+//                     font-weight: 600;
+//                     vertical-align: bottom;
+//                 }
+
+//                 .required {
+//                     display: inline-block;
+//                 }
+
+//             //  input types
+//             //  ========================================================================================
+//             .form-container {
+//                 input[type="text"],
+//                 input[type="number"],
+//                 input[type="email"],
+//                 .mx-datepicker {
+//                     border-radius: $global-border-radius;
+//                     font-size: 1rem;
+//                     line-height: 1.5rem;
+//                     padding: .75rem .8125rem;
+
+//                     &:focus {
+//                         border: 1px solid $color-1;
+
+//                         &::placeholder {
+//                           color: $color-3;
+//                         }
+//                     }
+
+//                     &:placeholder-shown {
+//                         border: 1px solid $grey-1;
+//                     }
+
+//                     &:not(:placeholder-shown):invalid {
+//                         border: 1px solid $color-error;
+
+//                         &::placeholder {
+//                             color: $color-3;
+//                         }
+//                     }
+
+//                     &:not(:focus) {
+//                         &::placeholder {
+//                             color: $color-3;
+//                         }
+
+//                         &:invalid ~ label span {
+//                             display: inline-block;
+//                         }
+//                     }
+
+//                     &:focus:valid {
+//                         border: 1px solid $color-1;
+//                     }
+
+//                     &:not(:placeholder-shown):valid {
+//                         border: 1px solid $color-3;
+//                     }
+
+//                     &:not(:focus):valid ~ .form-check {
+//                         @include flex($align: center, $justify: center);
+
+//                         border-radius: 6.25rem;
+//                         border: solid 1px $color-3;
+//                         bottom: .8125rem;
+//                         display: block;
+//                         height: 24px;
+//                         position: absolute;
+//                         right: .80375rem;
+//                         width: 24px;
+//                         z-index: 1;
+//                     }
+//                 }
+
+//                 .mx-datepicker {
+//                     border: solid 1px $color-1;
+//                 }
+
+//                 .form-check {
+//                     position: relative;
+//                     overflow: hidden;
+//                     right: -1000px;
+
+//                     .icon-tick {
+//                         @include set-icon-color($color-3);
+
+//                         bottom: 0;
+//                         position: absolute;
+//                         right: 0;
+//                         width: 22px;
+//                         height: 22px;
+//                     }
+//                 }
+
+//                 &.form-item .val-title-container {
+//                     @include flex($align: flex-start, $dir: column, $justify: space-between);
+
+//                     label.val-title {
+//                         padding-bottom: .5rem;
+//                     }
+
+//                     p {
+//                         font-size: 14px;
+//                         font-weight: 600;
+//                         padding: 0;
+//                     }
+//                 }
+//             }
+
+
+
+//             input:not(:required) {
+//                 & ~ .form-check {
+//                     z-index: -1;
+//                 }
+//             }
+
+//         //  Dropdown Lists
+//         //  ============================================================================================
+//         select,
+//         input[type="date"] {
+//             appearance: none;
+//             border-radius: .75rem;
+//             box-sizing: border-box;
+//             font-size: 1rem;
+//             padding: .90625rem .8125rem;
+
+//             &:disabled {
+//                 border: 1px solid $grey-7;
+//             }
+
+//             &:valid {
+//                 border: 1px solid $color-1;
+
+//                 & ~ .dd-icon {
+//                     border-color: $color-1;
+//                 }
+//             }
+
+//             &:invalid {
+//                 border: 1px solid $color-error;
+//             }
+//         }
+
+//         .container:target {
+//             border: 1px solid red;
+//         }
+
+//         .dd-icon {
+//             border-bottom: 1px solid $grey-2;
+//             border-left: 1px solid $grey-2;
+//             border-radius: 1px;
+//             bottom: 1.375rem;
+//             display: block;
+//             height: .625rem;
+//             position: absolute;
+//             right: 1.25rem;
+//             transform: matrix(-0.71, -0.71, -0.71, 0.71, 0, 0);
+//             width: .625rem;
+//         }
+
+//         //  Checkbox form
+//         //  ============================================================================================
+//         .checkbox-container {
+//             border-bottom: 1px solid $grey-1;
+//             padding: .625em 0;
+//             position: relative;
+
+//             label {
+//                 padding-bottom: 0;
+//                 padding-right: 18.3125rem;
+//                 z-index: 2;
+//             }
+
+//             input {
+//                 appearance: none;
+//                 display: block;
+//                 height: 1.5rem;
+//                 position: absolute;
+//                 right: 0;
+//                 top: 0;
+//                 width: 1.5rem;
+//                 z-index: 3;
+//             }
+
+//             .radio {
+//                 @include flex($align: center, $justify: center);
+
+//                 border: 1px solid $grey-2;
+//                 border-radius: 100%;
+//                 float: right;
+//                 height: 1.5rem;
+//                 position: relative;
+//                 width: 1.5rem;
+
+//                 .icon-tick {
+//                     @include set-icon-color(#fff);
+
+//                     position: absolute;
+//                     right: .80375rem;
+//                     bottom: .8125rem;
+//                 }
+//             }
+
+//             input[type="radio"] {
+
+//                 &:checked ~ .radio {
+//                     background: $color-1;
+//                     border: 1px solid $color-2;
+//                 }
+//             }
+//         }
+
+//         //  Textarea form
+//         //  ============================================================================================
+//         .form-items {
+//             input::selection {
+//                 background: #fff;
+//             }
+
+//             textarea {
+//                 border-radius: $global-border-radius;
+//                 border: 1px solid $grey-1;
+//                 font-family: inherit;
+//                 font-size: 1rem;
+//                 line-height: 1.5rem;
+//                 padding: .75rem 0 5.125rem .8125rem;
+//                 position: relative;
+//                 resize: none;
+//                 width: 100%;
+
+//                 &:disabled {
+//                     border: 1px solid $grey-7;
+//                 }
+
+//                 &:valid {
+//                     border: 1px solid $color-1;
+
+//                     & ~ .dd-icon {
+//                         border-color: $color-1;
+//                     }
+//                 }
+
+//                 &:not(:placeholder-shown):invalid {
+//                     border: 1px solid $color-error;
+
+//                     &::placeholder {
+//                         color: $color-3;
+//                     }
+//                 }
+
+//                 &:not(:placeholder-shown):valid {
+//                     border: 1px solid $color-3;
+//                 }
+
+//                 &::placeholder {
+//                     color: $color-3;
+//                 }
+
+//                 &:not(:focus):valid ~ .form-check {
+//                     @include flex($align: center, $justify: center);
+
+//                     border-radius: 6.25rem;
+//                     border: solid 1px $color-3;
+//                     bottom: .8125rem;
+//                     display: block;
+//                     height: 24px;
+//                     position: absolute;
+//                     right: .80375rem;
+//                     top: 12px;
+//                     width: 24px;
+//                 }
+//             }
+//         }
+
+//         .terms {
+//             @include flex($align: center);
+
+//             font-size: 12px;
+
+//             input {
+//                 display: none;
+//             }
+
+//             .tick {
+//                 @include flex($align: center, $justify: center);
+
+//                 border-radius: 100px;
+//                 border: solid 1px $grey-1;
+//                 height: 24px;
+//                 margin-right: 10px;
+//                 width: 24px;
+
+//                 .icon-tick {
+//                     @include set-icon-color($grey-3);
+
+//                     display: none;
+//                 }
+//             }
+
+//             input:checked ~ .tick {
+//                 border-color: $color-3;
+
+//                 .icon {
+//                     display: block;
+//                 }
+//             }
+
+//             a {
+//                 color: $body-color;
+//             }
+//         }
+//     }
+// }

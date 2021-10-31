@@ -1,0 +1,131 @@
+// /*
+//     title:  animations
+//     author: @nexuspoint.co.uk
+//     notes:  site wide transitions and animations
+
+
+
+// ======================================================================================================================================================================================================== */
+
+
+
+
+// //  animations
+// //  ====================================================================================================
+// // page animation
+// .page-enter-active,
+// .page-leave-active {
+//     transition: all .2s;
+// }
+// .page-enter,
+// .page-leave-active {
+//     transform: translateY(100px);
+//     opacity: 0;
+// }
+
+
+// // slide left
+// .slide-left-enter-active {
+//     transition: transform .25s;
+// }
+// .slide-left-leave-active {
+//     transition: transform .5s;
+// }
+// .slide-left-enter,
+// .slide-left-leave-to {
+//     transform: translateX(100vw);
+// }
+
+
+// // fade in from left
+// .fade-in-from-left-enter-active,
+// .fade-in-from-left-leave-active {
+//     transition: all .1s;
+// }
+// .fade-in-from-left-enter,
+// .fade-in-from-left-leave-active {
+//     transform: translateX(-100px);
+//     opacity: 0;
+// }
+// .fade-in-from-left-enter-active { transition-delay: .1s }
+
+
+// // fade in
+// .fade-down-enter-active,
+// .fade-down-leave-active {
+//     transition: all .2s;
+// }
+// .fade-down-enter,
+// .fade-down-leave-active {
+//     transform: translateY(-100px);
+//     opacity: 0;
+// }
+// .fade-down-enter-active { transition-delay: .2s }
+
+
+// //  fade up
+// .fade-up-enter-active,
+// .fade-up-leave-active {
+//     transition: all .2s;
+// }
+// .fade-up-enter,
+// .fade-up-leave-active {
+//     transform: translateY(100px);
+//     opacity: 0;
+// }
+// .fade-up-enter-active { transition-delay: .2s }
+
+
+// //  fade in
+// .fade-in-enter-active,
+// .fade-in-leave-active {
+//     transition: all .5s;
+// }
+// .fade-in-enter,
+// .fade-in-leave-to {
+//     opacity: 0;
+//     transform: translateY(-10px);
+// }
+
+
+
+// // slide in animation
+// @keyframes slide-in {
+//     0% { left: 100vw }
+//     100% { left: 0 }
+// }
+
+// // for site header - dropdown submenu side swipe hover helper
+// @keyframes subnavHoverHelp {
+//     0% { width: 100%; }
+//     99% { width: 100%; }
+//     100% { width: 0; }
+// }
+
+// // slide left only
+// .slide-left-only-enter-active {
+//     transition: transform .25s;
+// }
+
+// .slide-left-only-enter {
+//     transform: translateX(100vw);
+// }
+
+// .slide-in-out-enter-active,
+// .slide-in-out-leave-active {
+//     transition: all .3s;
+// }
+
+// .slide-in-out-enter{
+//     opacity: 0;
+//     transform: translateX(100vw);
+// }
+
+// .slide-in-out-leave-active {
+//     transform: translateX(-100vw);
+//     opacity: 0;
+// }
+
+// .slide-in-out-enter-active {
+//     transition-delay: .3s
+// }
